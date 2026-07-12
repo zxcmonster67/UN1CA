@@ -48,7 +48,7 @@ else
     source "$SRC_DIR/target/$1/config.sh" || exit 1
     if [ -f "$SRC_DIR/platform/$TARGET_PLATFORM/config.sh" ]; then
         # HACK
-        source "$SRC_DIR/platform/$TARGET_PLATFORM/config.sh" || exit
+        source "$SRC_DIR/platform/$TARGET_PLATFORM/config.sh" || exit 1
         source "$SRC_DIR/target/$1/config.sh" || exit 1
     fi
 fi
@@ -128,11 +128,6 @@ fi
 #     If set to true, AVB signing will be disabled.
 #     Defaults to false.
 #
-#   TARGET_INCLUDE_PATCHED_VBMETA (DEPRECATED)
-#     If set to true, a patched vbmeta image will be included in the compiled Odin tar package.
-#     Only applies when TARGET_INSTALL_METHOD is set to "odin".
-#     Defaults to false.
-#
 #   TARGET_KEEP_ORIGINAL_SIGN
 #     If set to true, the original AVB/Samsung signature footer is kept in the target device kernel images.
 #     Defaults to false.
@@ -173,35 +168,35 @@ fi
 #
 #   TARGET_SYSTEM_PARTITION_SIZE
 #     Integer containing the size in bytes of the target device system partition size.
-#     Unused if TARGET_USE_DYNAMIC_PARTITIONS is set to false.
+#     Unused if TARGET_USE_DYNAMIC_PARTITIONS is set to true.
 #
 #   TARGET_VENDOR_PARTITION_SIZE
 #     Integer containing the size in bytes of the target device vendor partition size.
-#     Unused if TARGET_USE_DYNAMIC_PARTITIONS is set to false.
+#     Unused if TARGET_USE_DYNAMIC_PARTITIONS is set to true.
 #
 #   TARGET_PRODUCT_PARTITION_SIZE
 #     Integer containing the size in bytes of the target device product partition size.
-#     Unused if TARGET_USE_DYNAMIC_PARTITIONS is set to false.
+#     Unused if TARGET_USE_DYNAMIC_PARTITIONS is set to true.
 #
 #   TARGET_ODM_PARTITION_SIZE
 #     Integer containing the size in bytes of the target device odm partition size.
-#     Unused if TARGET_USE_DYNAMIC_PARTITIONS is set to false.
+#     Unused if TARGET_USE_DYNAMIC_PARTITIONS is set to true.
 #
 #   TARGET_VENDOR_DLKM_PARTITION_SIZE
 #     Integer containing the size in bytes of the target device vendor_dlkm partition size.
-#     Unused if TARGET_USE_DYNAMIC_PARTITIONS is set to false.
+#     Unused if TARGET_USE_DYNAMIC_PARTITIONS is set to true.
 #
 #   TARGET_ODM_DLKM_PARTITION_SIZE
 #     Integer containing the size in bytes of the target device odm_dlkm partition size.
-#     Unused if TARGET_USE_DYNAMIC_PARTITIONS is set to false.
+#     Unused if TARGET_USE_DYNAMIC_PARTITIONS is set to true.
 #
 #   TARGET_SYSTEM_DLKM_PARTITION_SIZE
 #     Integer containing the size in bytes of the target device system_dlkm partition size.
-#     Unused if TARGET_USE_DYNAMIC_PARTITIONS is set to false.
+#     Unused if TARGET_USE_DYNAMIC_PARTITIONS is set to true.
 #
 #   TARGET_OS_SINGLE_SYSTEM_IMAGE
 #     String containing the target device SSI, it must match the `ro.build.product` prop.
-#     Currently, only "qssi", "essi" and "mssi" are supported.
+#     Currently, only "qssi" and "essi" are supported.
 #
 #   TARGET_OS_FILE_SYSTEM_TYPE
 #     String containing the target device firmware file system.
